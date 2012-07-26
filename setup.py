@@ -1,5 +1,7 @@
 from setuptools import setup
 
+requires = open('requirements.txt').readlines()
+
 setup(
     name='confuzzle',
     author='Jamie Matthews',
@@ -9,6 +11,7 @@ setup(
     py_modules=['confuzzle'],
     description='A tiny tool for generating templated config files',
     license='Public Domain',
+    install_requires=requires,
     entry_points={
         'console_scripts': [
             'confuzzle = confuzzle:main'
