@@ -13,7 +13,7 @@ Example
 In your `gunicorn.py.tmpl`:
 
 ```jinja
-bind: "bind = "127.0.0.1:{{ gunicorn.port }}"
+bind = "127.0.0.1:{{ gunicorn.port }}"
 ```
 
 In your `nginx.conf.tmpl`:
@@ -33,8 +33,10 @@ gunicorn:
 
 By default, confuzzle reads from `stdin` and writes to `stdout`. To use:
 
-   confuzzle config.yaml < gunicorn.py.tmpl > gunicorn.py
-   confuzzle config.yaml < nginx.conf.tmpl > nginx.conf
+```console
+confuzzle config.yaml < gunicorn.py.tmpl > gunicorn.py
+confuzzle config.yaml < nginx.conf.tmpl > nginx.conf
+```
 
 Now, your files look like this:
 
@@ -50,7 +52,9 @@ upstream app_server {
 
 You can also supply a list of YAML files. This might be useful if you'd like to combine a general config file (in version control) with a file containing secrets such as database passwords (not in version control).
 
-    confuzzle config.yaml secrets.yaml < settings.py.tmpl > settings.py
+```console
+confuzzle config.yaml secrets.yaml < settings.py.tmpl > settings.py
+```
 
 See `confuzzle --help` for the full list of arguments.
 
