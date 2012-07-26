@@ -19,12 +19,12 @@ def main():
                         help="One or more YAML files to read")
     parser.add_argument('--template-file', '-f', dest='template',
                         type=argparse.FileType('r'), default=sys.stdin,
-                        help=("Config file template. If not supplied, ",
-                              "stdin is used"))
+                        help="Config file template. If not supplied, "
+                             "stdin is used")
     parser.add_argument('--out', '-o', dest='out',
                         type=argparse.FileType('w'), default=sys.stdout,
-                        help=("Output file to write. If not supplied, ",
-                              "stdout is used"))
+                        help="Output file to write. If not supplied, "
+                             "stdout is used")
     parser.add_argument('--strict', dest='strict',
                         action='store_true', default=False,
                         help="Raise an exception on undefined variables")
