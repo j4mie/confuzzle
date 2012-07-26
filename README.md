@@ -58,8 +58,6 @@ confuzzle config.yaml secrets.yaml < settings.py.tmpl > settings.py
 
 See `confuzzle --help` for the full list of arguments.
 
-Prints to stdout the result of combining gunicorn_template.conf with the yaml data in config.yaml
-
 Changelog
 ---------
 
