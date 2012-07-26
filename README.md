@@ -5,7 +5,7 @@ confuzzle
 
 **Author:** Jamie Matthews. [Follow me on Twitter](http://twitter.com/j4mie).
 
-When deploying an application, you often need to create configuration files for various components (databases, web servers, reverse proxies, etc). Often, the **same** value needs to appear in **multiple** places. This tool lets you store all of your app config in one place, outside of version control, and combine it with your templated config files at build time.
+When deploying an application, you often need to create configuration files for various components (databases, web servers, reverse proxies, etc). Often, the **same** value needs to appear in **multiple** places (for example, a port number that servers should bind to and clients should connect to). `confuzzle` lets you store all of your app config in one place (possibly outside of version control), and combine it with your templated config files at build time.
 
 Example
 -------
@@ -25,6 +25,7 @@ upstream app_server {
 ```
 
 Here's your `config.yaml`
+
 ```yaml
 gunicorn:
   port: 8080
@@ -34,6 +35,22 @@ By default, confuzzle reads from `stdin` and writes to `stdout`. To use:
 
    confuzzle config.yaml < gunicorn.py.tmpl > gunicorn.py
    confuzzle config.yaml < nginx.conf.tmpl > nginx.conf
+
+Now, your files look like this:
+
+```jinja
+bind: "bind = "127.0.0.1:8080"
+```
+
+```jinja
+upstream app_server {
+    server 127.0.0.1:8080 fail_timeout=0;
+}
+```
+
+You can also supply a list of YAML files. This might be useful if you'd like to combine a general config file (in version control) with a file containing secrets such as database passwords (not in version control).
+
+    confuzzle config.yaml secrets.yaml < settings.py.tmpl > settings.py
 
 See `confuzzle --help` for the full list of arguments.
 
