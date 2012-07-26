@@ -68,8 +68,6 @@ Changelog
 Installation
 ------------
 
-**Not yet on PyPI! Clone the repo and `python setup.py develop`**
-
 You can install confuzzle from PyPI:
 
     pip install confuzzle
