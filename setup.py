@@ -18,7 +18,7 @@ setup(
         ]
     },
     classifiers=[
-        'Programming Language :: Python'
+        'Programming Language :: Python',
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'License :: Public Domain',
