@@ -4,7 +4,7 @@ setup(
     name='confuzzle',
     author='Jamie Matthews',
     author_email='jamie.matthews@gmail.com',
-    version='0.1.1',
+    version='0.2.0',
     url='http://github.com/j4mie/confuzzle',
     py_modules=['confuzzle'],
     description='A tiny tool for generating templated config files',
