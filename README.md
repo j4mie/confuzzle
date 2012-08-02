@@ -69,6 +69,10 @@ Changelog
 
 * Fix setup.py
 
+#### 0.2.0
+
+* Assume input/output streams and config files are UTF-8 encoded.
+
 Installation
 ------------
 

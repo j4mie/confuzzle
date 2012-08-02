@@ -2,6 +2,7 @@ import sys
 import argparse
 import yaml
 import jinja2
+from codecs import getreader, getwriter
 
 
 def render(template_string, context, strict=False):
@@ -33,12 +34,12 @@ def main():
 
     context = {}
     for file in args.config:
-        context.update(yaml.load(file.read()))
+        context.update(yaml.load(getreader('utf-8')(file).read()))
 
-    template_string = args.template.read()
+    template_string = getreader('utf-8')(args.template).read()
 
     rendered = render(template_string, context, args.strict)
-    args.out.write(rendered)
+    getwriter('utf-8')(args.out).write(rendered)
 
 
 if __name__ == "__main__":
