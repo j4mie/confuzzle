@@ -41,7 +41,7 @@ confuzzle config.yaml < nginx.conf.tmpl > nginx.conf
 Now, your files look like this:
 
 ```jinja
-bind: "bind = "127.0.0.1:8080"
+bind = "127.0.0.1:8080"
 ```
 
 ```jinja
